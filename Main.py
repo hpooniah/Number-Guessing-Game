@@ -14,19 +14,28 @@ while True:
     print("Let's Guess away")
             
     # Ask user for low and high number 
-    invalid = True
+    while True: 
+        invalid = True
 
-    while invalid:
-        try: 
-            low_number = int(input("Enter the lowest number for the range: ").strip())
-            high_number = int(input("Enter the highest number for the range: ").strip())
-        except ValueError:
-            print("Only type integers!")
-        else: # when there is no error
-            invalid = False
-        if high_number > low_number:
-            break 
-        print("The highest number must be greater than the lowest number. Try again.")
-    
+        while invalid:
+            try: 
+                low_number = int(input("Enter the lowest number for the range: ").strip())
+                high_number = int(input("Enter the highest number for the range: ").strip())
+            except ValueError:
+                print("Only type integers!")
+            else: # when there is no error
+                invalid = False
+                if high_number > low_number:
+                    break 
+                print("The highest number must be greater than the lowest number. Try again.")
             
-       
+    # Ask for the number of attempts 
+        invalid = True
+
+        while invalid:
+            try: 
+                guess =  int(input("Enter the amount of guess you want:  "))         
+            except ValueError:
+                print("Only type integers!")
+            else: invalid = False
+            
