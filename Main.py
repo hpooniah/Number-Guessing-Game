@@ -44,17 +44,19 @@ while True:
 
         # Generate a random number
             secret_number = random.randint(low_number, high_number)
+
         
         # try something but not working ask Mr.kung
             guess = 0 
             print(" You have no more attempts left.")
-            try_agian_lost = input("The number was {random}. Do you want to play again? [y] or [n]")
-            if try_agian_lost != "y": 
+            try_agian_lost = input(f"The number was {secret_number} . Do you want to play again? [y] or [n]")
+            if try_agian_lost != "y":   
                 displayIntro()
+            else:
+                try_agian_lost == "n"
+                print(f"Thanks for playing Guess it right {name}!!! ")
 
-            if try_agian_lost != "n":
-                print("Thanks for playing Guess it right {name}!!! ")
-
+    displayIntro()
         # Loop for guess attempts
 
 
