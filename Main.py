@@ -37,26 +37,45 @@ while True:
 
             while invalid:
                 try: 
-                    guess =  int(input("Enter the amount of guess you want:  "))         
+                    attempts =  int(input("Enter the amount of attempts you want:  "))         
                 except ValueError:
                     print("Only type integers!")
                 else: invalid = False
 
         # Generate a random number
-            secret_number = random.randint(low_number, high_number)
+            random_number = random.randint(low_number, high_number)
 
-        
-        # try something but not working ask Mr.kung
-            guess = 0 
-            print(" You have no more attempts left.")
-            try_agian_lost = input(f"The number was {secret_number} . Do you want to play again? [y] or [n]")
+            attempts_used = 0 
+
+         # Loop for guess attempts
+            while attempts_used < attempts:
+                guess = int(input("Enter a guess for the random number: "))
+                attempts_used += 1
+
+                #Tell the user if the guess is to low, high, or he guessed it right
+                if guess < random_number: 
+                    print("Your guess is to low, give it another shot")
+                elif guess > random_number:
+                    print ("Your guess is to high, give it another shot")
+                else: 
+                    print(f"You did it!, You guess the correct number {random_number}\nYou had {attempts - attempts_used} attempts remaining")
+                
+                # Ask the user if they want to play again
+                    try_again = input("Do You Wish to play Guess It Right again? [y] or [n]").strip().lower()
+                    if try_again != "y":
+                        displayIntro()
+                    else:
+                        try_agian_lost != "n"
+                    print(f"Thanks for playing Guess it right {name}!!! ")
+
+        # When the user runs out of attempts
+            print("You have no more attempts left.")
+            try_agian_lost = input(f"The number was {random_number} . Do you want to play again? [y] or [n]")
             if try_agian_lost != "y":   
                 displayIntro()
             else:
-                try_agian_lost == "n"
                 print(f"Thanks for playing Guess it right {name}!!! ")
 
-    displayIntro()
-        # Loop for guess attempts
+    displayIntro()    
 
 
