@@ -6,14 +6,20 @@ while True:
         print(f"Hello {name}!\nThis is a Number Guessing Game called Guess It Right!!! ") # introducing the game
 
         # Ask if they are ready to play
-        ready = input(f"{name} you ready to play Guess It Right? [y] or [n] ").strip().lower()
-        if ready != "y": 
-            print("Maybe next time! Goodbye!") # they dont want to play the game
-            exit() # closes the game
+        def want_play():
+                ready = input(f"{name} you ready to play Guess It Right? [y] or [n] ").strip().lower()
+                if ready == "n": 
+                    print("Maybe next time! Goodbye!") # they dont want to play the game
+                    exit() # closes the game
 
-        # If they want to play, start the game
-        print("Guess away")
-                        
+                    # If they want to play, start the game
+                elif ready == "y":
+                    print("Guess away")
+                else:
+                    print("Please enter y for yes and n for no ")
+                    want_play()
+        want_play()          
+            
         # Ask user for low and high number 
         def displayIntro(): # Start game from start
             while True:
@@ -63,14 +69,15 @@ while True:
                 print(f"You have no more attempts left. The correct number was {random_number}.")
                                     
             # Ask the user if they want to play again
-            try_again = input("Do You Wish to play Guess It Right again? [y] or [n]").strip().lower()
-            while try_again not in ["y", "n"]:
-                try_again = input("Please enter y for yes and n for no").strip().lower()
-                                
-            if try_again != "n":
-                displayIntro()
-            if try_again != "y":
-                print(f"Thanks for playing Guess it right {name}!!! ")
-                exit()
+            while True: 
+                
+                    try_again = input("Do You Wish to play Guess It Right again? [y] or [n]").strip().lower()
+                    if try_again == "y":
+                        displayIntro()
+                    elif try_again == "n":
+                        print(f"Thanks for playing Guess it right {name}!!! ")
+                        exit()
+                    else:
+                        print("Please enter y for yes and n for no ")
 
         displayIntro()
